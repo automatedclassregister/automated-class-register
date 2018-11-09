@@ -1,0 +1,41 @@
+--------------------------------------------------------
+
+--
+-- Table structure for table `membership_userrecords`
+--
+
+CREATE TABLE IF NOT EXISTS `membership_userrecords` (
+  `recID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `tableName` varchar(100) DEFAULT NULL,
+  `pkValue` varchar(255) DEFAULT NULL,
+  `memberID` varchar(20) DEFAULT NULL,
+  `dateAdded` bigint(20) unsigned DEFAULT NULL,
+  `dateUpdated` bigint(20) unsigned DEFAULT NULL,
+  `groupID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`recID`),
+  KEY `pkValue` (`pkValue`),
+  KEY `tableName` (`tableName`),
+  KEY `memberID` (`memberID`),
+  KEY `groupID` (`groupID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `membership_userrecords`
+--
+
+INSERT INTO `membership_userrecords` (`recID`, `tableName`, `pkValue`, `memberID`, `dateAdded`, `dateUpdated`, `groupID`) VALUES
+(1, 'courses', '1', 'admin', 1517324670, 1517324670, 2),
+(2, 'courses', '2', 'admin', 1517324701, 1517324701, 2),
+(3, 'courses', '3', 'admin', 1517324738, 1517324738, 2),
+(4, 'units', '1', 'admin', 1517324782, 1517324782, 2),
+(5, 'units', '2', 'admin', 1517324809, 1517324809, 2),
+(6, 'students', 'TED/118/16', 'admin', 1517324964, 1517324964, 2),
+(7, 'students', 'COM/016/16', 'admin', 1517325016, 1517325016, 2),
+(8, 'students', 'BBA/09/16', 'admin', 1517325066, 1517325066, 2),
+(9, 'attendance', '1', 'admin', 1517325147, 1517325147, 2),
+(10, 'attendance', '2', 'admin', 1517325189, 1517325189, 2);
+
+-- --------------------------------------------------------
+
+--
+-- 

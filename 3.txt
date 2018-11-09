@@ -1,0 +1,47 @@
+--------------------------------------------------------
+
+--
+-- Table structure for table `membership_groups`
+--
+
+CREATE TABLE IF NOT EXISTS `membership_groups` (
+  `groupID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) DEFAULT NULL,
+  `description` text,
+  `allowSignup` tinyint(4) DEFAULT NULL,
+  `needsApproval` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`groupID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `membership_groups`
+--
+
+INSERT INTO `membership_groups` (`groupID`, `name`, `description`, `allowSignup`, `needsApproval`) VALUES
+(1, 'anonymous', 'Anonymous group created automatically on 2018-01-30', 0, 0),
+(2, 'Admins', 'Admin group created automatically on 2018-01-30', 0, 1),
+(3, 'Lecturer', 'lecturers can join group and add their courses and units and their students', 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `membership_userpermissions`
+--
+
+CREATE TABLE IF NOT EXISTS `membership_userpermissions` (
+  `permissionID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `memberID` varchar(20) NOT NULL,
+  `tableName` varchar(100) DEFAULT NULL,
+  `allowInsert` tinyint(4) DEFAULT NULL,
+  `allowView` tinyint(4) NOT NULL DEFAULT '0',
+  `allowEdit` tinyint(4) NOT NULL DEFAULT '0',
+  `allowDelete` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`permissionID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `membership_userpermissions`
+--
+
+
+-- 

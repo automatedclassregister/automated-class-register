@@ -1,0 +1,72 @@
+Table structure for table `membership_users`
+--
+
+CREATE TABLE IF NOT EXISTS `membership_users` (
+  `memberID` varchar(20) NOT NULL,
+  `passMD5` varchar(40) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `signupDate` date DEFAULT NULL,
+  `groupID` int(10) unsigned DEFAULT NULL,
+  `isBanned` tinyint(4) DEFAULT NULL,
+  `isApproved` tinyint(4) DEFAULT NULL,
+  `custom1` text,
+  `custom2` text,
+  `custom3` text,
+  `custom4` text,
+  `comments` text,
+  `pass_reset_key` varchar(100) DEFAULT NULL,
+  `pass_reset_expiry` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`memberID`),
+  KEY `groupID` (`groupID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `membership_users`
+--
+
+INSERT INTO `membership_users` (`memberID`, `passMD5`, `email`, `signupDate`, `groupID`, `isBanned`, `isApproved`, `custom1`, `custom2`, `custom3`, `custom4`, `comments`, `pass_reset_key`, `pass_reset_expiry`) VALUES
+('guest', NULL, NULL, '2018-01-30', 1, 0, 1, NULL, NULL, NULL, NULL, 'Anonymous member created automatically on 2018-01-30', NULL, NULL),
+('admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@admin.com', '2018-01-30', 2, 0, 1, NULL, NULL, NULL, NULL, 'Admin member created automatically on 2018-01-30', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `students`
+--
+
+CREATE TABLE IF NOT EXISTS `students` (
+  `regno` varchar(40) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `course` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`regno`),
+  KEY `course` (`course`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`regno`, `name`, `course`) VALUES
+('TED/118/16', 'John Doe', '1'),
+('COM/016/16', 'Mark Zuckerburg', '2'),
+('BBA/09/16', 'Bill Gates', '3');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `units`
+--
+
+CREATE TABLE IF NOT EXISTS `units` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `units`
+--
+
+INSERT INTO `units` (`id`, `name`) VALUES
+(1, 'IRD 200'),
+(2, 'EDF 211');
